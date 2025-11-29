@@ -1,92 +1,50 @@
 # CUATSHackathon2025
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/University_of_Cambridge_coat_of_arms.svg/1200px-University_of_Cambridge_coat_of_arms.svg.png" 
-       alt="University of Cambridge" height="110">
+  <img src="logo/UCAM-logo.png" alt="University of Cambridge" height="105">
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/cambridge-ats/brand/main/logos/cuats-logo-black.png" 
-       alt="Cambridge University Algorithmic Trading Society" height="110">
+  <img src="logo/CUATS-logo.png" alt="Cambridge University Algorithmic Trading Society" height="105">
 </p>
 
 <h1 align="center">CUATS AlgoTrade Hackathon 2025</h1>
 
 <p align="center">
-Algorithmic trading strategy developed for the 
-<strong>Cambridge University Algorithmic Trading Society (CUATS)</strong> Hackathon 2025.
+Algorithmic trading project developed for the 
+<strong>Cambridge University Algorithmic Trading Society (CUATS)</strong> Hackathon 2025.  
 <br>
 Ranked <strong>Top 10 / 70+ teams</strong>.
 </p>
 
 ---
 
-## 🚀 Overview
+## 📌 Overview
 
-This repository contains my Python implementation for CUATS AlgoTrade Hackathon 2025.  
-The goal was to design a derivatives trading strategy operating on a **simulated order book** using **REST-like APIs** and **spot price signals**.
+This repository contains my full solution for the **CUATS AlgoTrade Hackathon 2025**,  
+a competition combining:
 
-The challenge required:
+- **LeetCode-style algorithmic challenges**, and  
+- a **live derivatives trading simulation** using a REST API environment.
 
-- Building a **robust pricing model** under limited data  
-- Managing and updating **live working orders**  
-- Handling **latency, partial fills, and adversarial competition**  
-- Structuring the strategy for **low-latency deployment on hardware** (e.g., Raspberry Pi)  
+During the hackathon, participants solved a sequence of algorithmic tasks to unlock API access and progressively build a trading engine that can:
 
----
+- interpret spot-price signals,  
+- price derivatives,  
+- submit/cancel orders,  
+- and compete in an adversarial, latency-sensitive market.
 
-## 🧠 Problem Description
-
-Participants were provided with:
-
-- A derivatives **order book simulation** (bid/ask, L1/L2 depth)
-- Streaming **spot price feeds**
-- REST endpoints to:
-  - Retrieve order book snapshots
-  - Place / update / cancel orders
-  - Track positions & PnL
-
-The task:  
-> Detect short-lived market inefficiencies and trade them profitably  
-while controlling inventory, latency, and risk.
+My final submission placed **Top 10** among 70+ participating teams.
 
 ---
 
-## 🛠️ Approach
+## 🧠 Algorithmic Challenges (LeetCode-Style)
 
-### **1. Pricing & Signal Logic**
-- Derived fair value from spot price movements and simple greeks intuition  
-- Used conservative predictors to avoid overfitting in volatile scenarios
+The competition required solving 5 warm-up problems to unlock trading API actions.  
+Each problem was implemented efficiently using the optimal data structure or algorithm.
 
-### **2. Execution Strategy**
-- Maintained tight working quotes around fair value  
-- Aggressively re-quoted when spot price shifted  
-- Prevented inventory runaway via risk-adjusted spreads  
+| File | Problem | Core Idea |
+|------|---------|-----------|
+| `dl659-CUATSHackathon2025-01.py` | **Two Sum** | Hash map lookup, O(n) |
+| `dl659-CUATSHackathon2025-02.py` | **Binary Search** | Iterative two-pointer search, O(log n) |
+| `dl659-CUATSHackathon2025-03.py` | **Reverse Linked List** | Pointer flip, O(n), O(1) memory |
+| `dl659-CUATSHackathon2025-04.py` | **Same Tree** | Recursive DFS structural equality |
+| `dl659-CUATSHackathon2025-05.py` | **Subsets (Power Set)** | Iterative expansion to 2ⁿ subsets |
 
-### **3. Latency Optimisation**
-- Minimized redundant API calls  
-- Ensured strategy remained state-light  
-- Code prepared for deployment on **Raspberry Pi** (achieved ~10× latency reduction in final tests)
-
----
-
-## 📂 Repository Structure
-
-| File | Description |
-|------|-------------|
-| `dl659-CUATSHackathon2025-01.py` | Early baseline logic (pricing tests) |
-| `dl659-CUATSHackathon2025-02.py` | Order management experiments |
-| `dl659-CUATSHackathon2025-03.py` | Inventory-aware quoting |
-| `dl659-CUATSHackathon2025-04.py` | Latency-reduced version |
-| `dl659-CUATSHackathon2025-05.py` | **Final strategy submitted to CUATS** |
-
----
-
-## ▶️ Getting Started
-
-### **Requirements**
-- Python 3.10+
-- Standard libraries:
-  - `requests`, `json`, `time`, `math`
-- No special external dependencies required in most scripts
-
-### **Running**
-```bash
-python dl659-CUATSHackathon2025-05.py
